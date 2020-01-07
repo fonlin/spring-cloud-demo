@@ -1,0 +1,14 @@
+server:
+  port: 4000
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    # 不注册到eureka，这样其他服务无法发现自己
+    register-with-eureka: false
+    # 不从eureka-server抓取注册信息，因为自己本身就是eureka-server
+    fetch-registry: false
+#  instance:
+#    prefer-ip-address: true
+#    instance-id: ${spring.application.name}:${server.port}

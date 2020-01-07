@@ -1,0 +1,26 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: gateway
+# 配置Eureka地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:4000/eureka/
+# 构建路由地址
+zuul:
+  routes:
+    # 这里可以自定义
+    service1-service:
+      # 匹配的路由规则
+      path: /service1/**
+      # 路由的目标服务名
+      serviceId: service1-service
+      # 是否去掉路径中的服务前缀
+      stripPrefix: false
+    service2-service:
+      path: /service2/**
+      serviceId: service2-service
+      stripPrefix: false
+
